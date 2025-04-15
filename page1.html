@@ -133,7 +133,7 @@
   </div>
 
   <a href="index.html">← Back to Home</a>
-  <audio id="bgm" src="https://dl.dropboxusercontent.com/scl/fi/dmuupumvkx92t23wevirz/Glue.mp3?rlkey=ukxt5imll5qpq6mvmckxqq1gv&st=5d26q0x8&dl=0"></audio>
+  <audio id="bgm" src="https://dl.dropboxusercontent.com/scl/fi/dmuupumvkx92t23wevirz/Glue.mp3?rlkey=ukxt5imll5qpq6mvmckxqq1gv&st=5d26q0x8&dl=0" preload="auto"></audio>
 
   <script>
     const polaroids = document.querySelectorAll('.polaroid');
@@ -142,7 +142,7 @@
     let musicPlayed = false;
     let topZIndex = 1000;
 
-    // Play BGM
+    // Play BGM on interaction
     function playBGM() {
       if (!musicPlayed) {
         bgm.play();
@@ -173,27 +173,39 @@
         let isDragging = false;
         let offsetX, offsetY;
 
-        card.addEventListener('mousedown', (e) => {
+        const startHandler = (e) => {
           isDragging = true;
-          offsetX = e.clientX - card.offsetLeft;
-          offsetY = e.clientY - card.offsetTop;
+          offsetX = (e.clientX || e.touches[0].clientX) - card.offsetLeft;
+          offsetY = (e.clientY || e.touches[0].clientY) - card.offsetTop;
           topZIndex++;
           card.style.zIndex = topZIndex;
           sound.play();
           playBGM();
-        });
+        };
 
-        document.addEventListener('mousemove', (e) => {
+        const moveHandler = (e) => {
           if (isDragging) {
-            card.style.left = `${e.clientX - offsetX}px`;
-            card.style.top = `${e.clientY - offsetY}px`;
-            createSparkle(e.clientX, e.clientY);
+            const clientX = e.clientX || e.touches[0].clientX;
+            const clientY = e.clientY || e.touches[0].clientY;
+            card.style.left = `${clientX - offsetX}px`;
+            card.style.top = `${clientY - offsetY}px`;
+            createSparkle(clientX, clientY);
           }
-        });
+        };
 
-        document.addEventListener('mouseup', () => {
+        const endHandler = () => {
           isDragging = false;
-        });
+        };
+
+        // Mouse events
+        card.addEventListener('mousedown', startHandler);
+        document.addEventListener('mousemove', moveHandler);
+        document.addEventListener('mouseup', endHandler);
+
+        // Touch events for mobile
+        card.addEventListener('touchstart', startHandler);
+        document.addEventListener('touchmove', moveHandler, { passive: false });
+        document.addEventListener('touchend', endHandler);
 
         card.addEventListener('click', () => {
           const note = card.querySelector('.note');
