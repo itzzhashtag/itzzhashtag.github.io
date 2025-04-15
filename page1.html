@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Memories with Maira 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: radial-gradient(circle at center, #9b4d96, #e91e63);
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff4081;
+      padding: 20px;
+      font-size: 2.5rem;
+      text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 64, 129, 0.6);
+      position: relative;
+      z-index: 10;
+    }
+
+    .polaroid {
+      position: absolute;
+      width: 200px;
+      padding: 10px;
+      background: radial-gradient(circle, #ffc0cb 1px, transparent 1px), #fffafc;
+      background-size: 10px 10px;
+      border: 2px solid #ddd;
+      box-shadow: 5px 10px 20px rgba(0,0,0,0.15);
+      cursor: grab;
+      user-select: none;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      border-radius: 12px;
+    }
+
+    .polaroid img {
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    .caption {
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 8px;
+      color: #333;
+    }
+
+    .note {
+      display: none;
+      margin-top: 10px;
+      text-align: center;
+      font-size: 1rem;
+      color: #ff4081;
+      background: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: opacity 0.5s ease;
+      opacity: 0;
+    }
+
+    a {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-decoration: none;
+      background: #ff4081;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+
+    a:hover {
+      background: #e91e63;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #ff4081;
+      border-radius: 50%;
+      animation: sparkleAnimation 1.5s infinite ease-in-out;
+    }
+
+    @keyframes sparkleAnimation {
+      0% { transform: scale(0); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Polaroids of Us 📸</h1>
+
+  <!-- Polaroids -->
+  <div class="polaroid" draggable="true">
+    <img src="https://dl.dropboxusercontent.com/scl/fi/k5rcwnql7x7b50z1ivgpo/5.jpg?rlkey=wldakwahmfavx3zaefe8sipfe&st=4jantg38&dl=0" alt="Memory 1">
+    <div class="caption">You and Me being goofy 🥰</div>
+    <div class="note">That time we laughed until we couldn't breathe! 😄</div>
+  </div>
+  <div class="polaroid" draggable="true">
+    <img src="https://dl.dropboxusercontent.com/scl/fi/h4mimk0sa9crzd5uafbuf/3.jpg?rlkey=osur62avvsag1c06fk04j3swt&st=fx2g89ep&dl=0" alt="Memory 2">
+    <div class="caption">Cutest smile I know 😚</div>
+    <div class="note">Your smile is my favorite thing in the world. 🥺💖</div>
+  </div>
+  <div class="polaroid" draggable="true">
+    <img src="https://dl.dropboxusercontent.com/scl/fi/ozsqy78owjzzmyqjflcmj/4.jpg?rlkey=174t21koerp1m5s0fxgm43j44&st=fp8eoin0&dl=0" alt="Memory 3">
+    <div class="caption">That one perfect day 🌅</div>
+    <div class="note">Our unforgettable day in the park, it felt so perfect! 🌸</div>
+  </div>
+  <div class="polaroid" draggable="true">
+    <img src="https://dl.dropboxusercontent.com/scl/fi/pgmjw6ftwjrbvs0ficp95/1.jpg?rlkey=viujs5xq0210bonig6hbskzni&st=eb9uedbg&dl=0" alt="Memory 4">
+    <div class="caption">Can’t stop loving you 💖</div>
+    <div class="note">Every moment with you feels like a dream come true. 😘</div>
+  </div>
+  <div class="polaroid" draggable="true">
+    <img src="https://dl.dropboxusercontent.com/scl/fi/uxafecpbr7gs7zh5ruw9d/6.jpg?rlkey=35uemzh50485fex915ub3i4v6&st=0y9hvoky&dl=0" alt="Memory 5">
+    <div class="caption">Our laughs that never end 😄</div>
+    <div class="note">When we laugh together, everything else fades away. 💫</div>
+  </div>
+  <div class="polaroid" draggable="true">
+    <img src="https://dl.dropboxusercontent.com/scl/fi/84okoht7x5hnmyicr4rn9/2.jpg?rlkey=rm8rvxaeeg13f7y2z4pn10uzz&st=3yyfcbv2&dl=0" alt="Memory 6">
+    <div class="caption">Sweet moments, sweet kisses 😘</div>
+    <div class="note">I can't get enough of your kisses... forever mine. 💋</div>
+  </div>
+
+  <a href="index.html">← Back to Home</a>
+  <audio id="bgm" src="https://dl.dropboxusercontent.com/scl/fi/dmuupumvkx92t23wevirz/Glue.mp3?rlkey=ukxt5imll5qpq6mvmckxqq1gv&st=5d26q0x8&dl=0"></audio>
+
+  <script>
+    const polaroids = document.querySelectorAll('.polaroid');
+    const bgm = document.getElementById('bgm');
+    const sound = new Audio('https://www.soundjay.com/button/beep-07.wav');
+    let musicPlayed = false;
+    let topZIndex = 1000;
+
+    // Play BGM
+    function playBGM() {
+      if (!musicPlayed) {
+        bgm.play();
+        musicPlayed = true;
+      }
+    }
+
+    // Sparkle effect
+    function createSparkle(x, y) {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.style.left = `${x - 5}px`;
+      sparkle.style.top = `${y - 5}px`;
+      document.body.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 1500);
+    }
+
+    // On load, scatter polaroids
+    window.onload = () => {
+      polaroids.forEach(card => {
+        const x = Math.random() * (window.innerWidth - 220);
+        const y = Math.random() * (window.innerHeight - 300);
+        const r = (Math.random() - 0.5) * 20;
+        card.style.left = `${x}px`;
+        card.style.top = `${y}px`;
+        card.style.transform = `rotate(${r}deg)`;
+
+        let isDragging = false;
+        let offsetX, offsetY;
+
+        card.addEventListener('mousedown', (e) => {
+          isDragging = true;
+          offsetX = e.clientX - card.offsetLeft;
+          offsetY = e.clientY - card.offsetTop;
+          topZIndex++;
+          card.style.zIndex = topZIndex;
+          sound.play();
+          playBGM();
+        });
+
+        document.addEventListener('mousemove', (e) => {
+          if (isDragging) {
+            card.style.left = `${e.clientX - offsetX}px`;
+            card.style.top = `${e.clientY - offsetY}px`;
+            createSparkle(e.clientX, e.clientY);
+          }
+        });
+
+        document.addEventListener('mouseup', () => {
+          isDragging = false;
+        });
+
+        card.addEventListener('click', () => {
+          const note = card.querySelector('.note');
+          note.style.display = 'block';
+          note.style.opacity = 1;
+          playBGM();
+        });
+      });
+    };
+  </script>
+</body>
+</html>
